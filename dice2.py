@@ -11,7 +11,9 @@ class Dice:
         self.critical = 5
         self.funble = 96
         self.arotd = dice_text[1]
-        self.skill = dice_text[2]
+        self.skill = "なし"
+        if len(dice_text) > 2:
+            self.skill = dice_text[2]
         # dice_text[1](1d100>=50とかの部分)を>=で分割してみて、分割できるようであればif内を処理
         if len(dice_text[1].split('>=')) > 1:
             # throw_dice内の判定で使う greater than フラグをTrueにしておく
