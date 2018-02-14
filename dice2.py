@@ -7,6 +7,7 @@ class Dice:
         self.status = None
         self.critical = 5
         self.funble = 96
+        self.arotd = dice_text[1]
         # dice_text[1](1d100>=50とかの部分)を>=で分割してみて、分割できるようであればif内を処理
         if len(dice_text[1].split('>=')) > 1:
             # throw_dice内の判定で使う greater than フラグをTrueにしておく
@@ -33,21 +34,20 @@ class Dice:
         import random
         dice_number = []
 
-        #if self.status is not None:
         if self.status is not None:
             dice_number.append(random.randint(1, int(self.num_surface)))
             if self.num_surface is 100:
                 if self.lt_flag:
                     if dice_number[0] <= self.status:
                         if dice_number[0] <= self.critical:
-                            return str(dice_number) + ' 成功しましたわよ！　なんとクリティカルですわ！'
+                            return str(dice_number) + ' 成功しましたわよ！　なんとクリティカルですわ！' + '振ったダイス：' + str(self.arotd)
                         else:
-                            return str(dice_number) + ' 成功ですわよ！!'
+                            return str(dice_number) + ' 成功ですわよ！!' + '振ったダイス：' + str(self.arotd)
                     else:
                         if dice_number[0] >= self.funble:
-                            return str(dice_number) + ' 失敗ですわよ...。 更にファンブルですわ...。'
+                            return str(dice_number) + ' 失敗ですわよ...。 更にファンブルですわ...。' + '振ったダイス：' + str(self.arotd)
                         else:
-                            return str(dice_number) + '失敗ですわよ...。'
+                            return str(dice_number) + '失敗ですわよ...。' + '振ったダイス：' + str(self.arotd)
                 else:
                     return ">=はだめですわよ～"
             else:
@@ -56,46 +56,3 @@ class Dice:
             for i in range(self.dice_count):
                 dice_number.append(random.randint(1, self.num_surface))
             return str(dice_number)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            #if self.lt_flag and dice_number[0] <= self.status and self.num_surface is 100 and dice_number[0] <= 5:
-                #return str(dice_number) + ' 成功しましたわよ！　なんとクリティカルですわ！'
-            #else:
-                #return str(dice_number) + ' 成功しましたわよ！'
-
-            #if self.lt_flag and dice_number[0] <= self.status and self.num_surface is 100 and dice_number[0] >= 96:
-                #return str(dice_number) + ' 失敗ですわよ...。 更にファンブルですわ...。'
-            #if self.lt_flag and dice_number[0] <= self.status or self.gt_flag and dice_number[0] <= self.status:
-                #return str(fice_number) + '失敗ですわよ...。'
-
-            #return str(dice_number)
-        #else:
-            #for i in range(self.dice_count):
-                #dice_number.append(random.randint(1, self.num_surface))
-
-            #if self.num_surface is 100 and dice_number[0] <= 5:
-                # dice_number = str(dice_number) + ' Critical!'
-
-            #elif self.num_surface is 100 and dice_number[0] >= 95:
-                # dice_number = str(dice_number) + ' Fumble!'
-
-            #return str(dice_number)
