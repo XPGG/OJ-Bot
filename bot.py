@@ -7,12 +7,14 @@ import asyncio
 client = discord.Client()
 dice = dice2.Dice()
 
+
 @client.event
 async def on_ready():
     print('Logged in as')
     print(client.user.name)
     print(client.user.id)
     print('------')
+
 
 @client.event
 async def on_message(message):
@@ -33,8 +35,8 @@ async def on_message(message):
             server_info = "<@%s> %s" % (message.author.id, minecraft_server_info.get_server_info(server_name))
             await client.send_message(message.channel, server_info)
         elif message.content.startswith("!dice "):
-            dice.set_dice(args)#Dice型インスタンスにダイスの生文字列をセットしてやるわよ
-            await client.send_message(message.channel,"<@%s> 嬢へ%s" % (message.author.id,dice.throw_dice()))
+            dice.set_dice(args)
+            await client.send_message(message.channel, "<@%s> 嬢へ%s" % (message.author.id, dice.throw_dice()))
         elif message.content in utages:
             await client.delete_message(message)
             # メッセージを書きます
@@ -43,7 +45,6 @@ async def on_message(message):
             response = await client.send_message(message.channel, m)
             await asyncio.sleep(5)
             await client.delete_message(response)
-
 
 
 client.run(settings.token)

@@ -1,5 +1,9 @@
 #! /bin/python3
+import re
+import random
 class Dice:
+    def Dice Validation(self,dice_text)
+        m = re.search(r),dice_text[1] 
     def set_dice(self, dice_text):
         # フラグ・statusを初期化
         self.lt_flag = False
@@ -31,7 +35,6 @@ class Dice:
         self.num_surface = int(dice_text[1].split('d')[1])
 
     def throw_dice(self):
-        import random
         dice_number = []
 
         if self.status is not None:
