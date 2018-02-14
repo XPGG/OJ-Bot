@@ -36,16 +36,14 @@ class Dice:
 			dice_number.append(random.randint(1, int(self.num_surface)))
 			if self.lt_flag and dice_number[0] <= self.status and self.num_surface is 100 and dice_number[0] <= 5:
 			   return str(dice_number) + ' 成功しましたわよ！　なんとクリティカルですわ！'
-			if self.lt_flag and dice_number[0] <= self.status or self.gt_flag and dice_number[0] >= self.status:
+		    if self.lt_flag and dice_number[0] <= self.status or self.gt_flag and dice_number[0] >= self.status:
 			   return str(dice_number) + ' 成功ですわよ！!'
 
-
-
-	　　　　else:
+		   else:
 			if self.lt_flag and dice_number[0] <= self.status and self.num_surface is 100 and dice_number[0] >= 96:
-				 return str(dice_number) + ' 失敗ですわよ...。 更にファンブルですわ...。'
+			   return str(dice_number) + ' 失敗ですわよ...。 更にファンブルですわ...。'
 			if self.lt_flag and dice_number[0] <= self.status or self.gt_flag and dice_number[0] <= self.status:
-				 return str(fice_number) + '失敗ですわよ...。'
+			   return str(fice_number) + '失敗ですわよ...。'
 
 			return str(dice_number)
 		#else:
