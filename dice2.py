@@ -35,24 +35,26 @@ class Dice:
 		if self.status is not None:
 			dice_number.append(random.randint(1, int(self.num_surface)))
 			if self.lt_flag and dice_number[0] <= self.status or self.gt_flag and dice_number[0] >= self.status:
-				return str(dice_number) + ' Success!'
+				return str(dice_number) + ' 成功ですわよ！!'
 
 			else:
-				return str(dice_number) + ' Failed!'
+				return str(dice_number) + ' 失敗ですわよ...。'
 
-		else:
-			for i in range(self.dice_count):
-				dice_number.append(random.randint(1, self.num_surface))
+			elif self.lt_flag and dice_number[0] <= self.status and self.num_surface is 100 and dice_number[0] <= 5:
+				dice_number = str(dice_number) + ' 成功しましたわよ！　なんとクリティカルですわ！'
 
-			if self.num_surface is 100 and dice_number[0] <= 5:
-				 dice_number = str(dice_number) + ' Critical!'
-			
-			elif self.num_surface is 100 and dice_number[0] >= 95:
-				 dice_number = str(dice_number) + ' Fumble!'
+			elif self.lt_flag and dice_number[0] <= self.status and self.num_surface is 100 and dice_number[0] >= 95:
+				dice_number = str(dice_number) + ' 失敗しましたわよ...　しかもファンブルですわ...!'
 
 			return str(dice_number)
+		#else:
+			#for i in range(self.dice_count):
+				#dice_number.append(random.randint(1, self.num_surface))
 
-text = '!dice 1d100>=50'.split(' ')
-dice = Dice()
-dice.set_dice(text)
-print dice.throw_dice()
+			#if self.num_surface is 100 and dice_number[0] <= 5:
+				# dice_number = str(dice_number) + ' Critical!'
+
+			#elif self.num_surface is 100 and dice_number[0] >= 95:
+				# dice_number = str(dice_number) + ' Fumble!'
+
+			#return str(dice_number)
