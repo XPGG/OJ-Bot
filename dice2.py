@@ -53,7 +53,9 @@ class Dice:
             else:
                 return "100面ダイスを使ってくださいまし！"
         else:
-            return "此処から先は後で書く"
+            for i in range(self.dice_count):
+                dice_number.append(random.randint(1, self.num_surface))
+            return str(dice_number)
 
 
 
