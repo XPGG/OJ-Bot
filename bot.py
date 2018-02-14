@@ -24,7 +24,7 @@ async def on_message(message):
             await client.send_message(message.channel, m)
         elif message.content in choco:
             # メッセージを書きます
-            m = "私の手作りチョコ受け取って貰えるかしら？" + message.author.name + "嬢。"
+            m = "私の手作りチョコ受け取って貰えるかしら？" + message.author.name + "嬢"
             # メッセージが送られてきたチャンネルへメッセージを送ります
             await client.send_message(message.channel, m)
         elif message.content.startswith("!mcnow "):
