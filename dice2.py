@@ -5,7 +5,7 @@ class Dice:
         self.lt_flag = False
         self.gt_flag = False
         self.status = None
-        self.Critical = 5
+        self.critical = 5
         self.funble = 96
         # dice_text[1](1d100>=50とかの部分)を>=で分割してみて、分割できるようであればif内を処理
         if len(dice_text[1].split('>=')) > 1:
@@ -39,7 +39,7 @@ class Dice:
             if self.num_surface is 100:
                 if self.lt_flag:
                     if dice_number[0] <= self.status:
-                        if dice_number[0] <= self.clitical:
+                        if dice_number[0] <= self.critical:
                             return str(dice_number) + ' 成功しましたわよ！　なんとクリティカルですわ！'
                         else:
                             return str(dice_number) + ' 成功ですわよ！!'
