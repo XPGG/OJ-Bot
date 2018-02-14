@@ -39,7 +39,7 @@ class Dice:
 		    if self.lt_flag and dice_number[0] <= self.status or self.gt_flag and dice_number[0] >= self.status:
 			   return str(dice_number) + ' 成功ですわよ！!'
 
-		   else:
+		   	else:
 			if self.lt_flag and dice_number[0] <= self.status and self.num_surface is 100 and dice_number[0] >= 96:
 			   return str(dice_number) + ' 失敗ですわよ...。 更にファンブルですわ...。'
 			if self.lt_flag and dice_number[0] <= self.status or self.gt_flag and dice_number[0] <= self.status:
