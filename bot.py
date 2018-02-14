@@ -36,7 +36,7 @@ async def on_message(message):
             await client.send_message(message.channel, server_info)
         elif message.content.startswith("!dice "):
             dice.set_dice(args)
-            await client.send_message(message.channel, "<@%s> 嬢へ%s" % (message.author.id, dice.throw_dice()))
+            await client.send_message(message.channel, "<@%s> 嬢へ %s" % (message.author.id, dice.throw_dice()))
         elif message.content in utages:
             await client.delete_message(message)
             # メッセージを書きます

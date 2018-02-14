@@ -1,9 +1,8 @@
 #! /bin/python3
-import re
 import random
+
+
 class Dice:
-    def Dice Validation(self,dice_text)
-        m = re.search(r),dice_text[1] 
     def set_dice(self, dice_text):
         # フラグ・statusを初期化
         self.lt_flag = False
@@ -12,6 +11,7 @@ class Dice:
         self.critical = 5
         self.funble = 96
         self.arotd = dice_text[1]
+        self.skill = dice_text[2]
         # dice_text[1](1d100>=50とかの部分)を>=で分割してみて、分割できるようであればif内を処理
         if len(dice_text[1].split('>=')) > 1:
             # throw_dice内の判定で使う greater than フラグをTrueにしておく
@@ -43,14 +43,14 @@ class Dice:
                 if self.lt_flag:
                     if dice_number[0] <= self.status:
                         if dice_number[0] <= self.critical:
-                            return str(dice_number) + ' 成功しましたわよ！　なんとクリティカルですわ！' + '振ったダイス：' + str(self.arotd)
+                            return str(dice_number) + ' 成功しましたわよ！ なんとクリティカルですわ！' + '\n振ったダイス：' + str(self.arotd) + ' ' + 'スキル：' + str(self.skill)
                         else:
-                            return str(dice_number) + ' 成功ですわよ！!' + '振ったダイス：' + str(self.arotd)
+                            return str(dice_number) + ' 成功ですわよ！!' + '\n振ったダイス：' + str(self.arotd) + ' ' + 'スキル：' + str(self.skill)
                     else:
                         if dice_number[0] >= self.funble:
-                            return str(dice_number) + ' 失敗ですわよ...。 更にファンブルですわ...。' + '振ったダイス：' + str(self.arotd)
+                            return str(dice_number) + ' 失敗ですわよ...。 更にファンブルですわ...。' + '\n振ったダイス：' + str(self.arotd) + ' ' + 'スキル：' + str(self.skill)
                         else:
-                            return str(dice_number) + '失敗ですわよ...。' + '振ったダイス：' + str(self.arotd)
+                            return str(dice_number) + '失敗ですわよ...。' + '\n振ったダイス：' + str(self.arotd) + ' ' + 'スキル：' + str(self.skill)
                 else:
                     return ">=はだめですわよ～"
             else:
