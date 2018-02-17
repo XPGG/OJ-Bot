@@ -40,7 +40,7 @@ async def on_message(message):
         elif message.content in utages:
             await client.delete_message(message)
             # メッセージを書きます
-            m = "I am シャイボーイ i am tokyo(福岡)"
+            m = "I am シャイボーイ 恋心はマーマレードのよう。"
             # メッセージが送られてきたチャンネルへメッセージを送ります
             response = await client.send_message(message.channel, m)
             await asyncio.sleep(5)
